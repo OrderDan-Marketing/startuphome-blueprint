@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>啟動家 × 168比網 系統藍圖</title>
+<style>
+  :root{
+    --bg:#FAFAF7;
+    --surface:#FFFFFF;
+    --ink:#22303A;
+    --ink-2:#5A6873;
+    --line:#E3E4DE;
+    --green:#166B54;      /* A 對外網站層 / 主色 */
+    --green-soft:#EAF3EF;
+    --blue:#33556E;       /* B 內部管理系統層 */
+    --blue-soft:#EBF1F5;
+    --copper:#8A5A2B;     /* C 財務系統(獨立) */
+    --copper-soft:#F6EFE5;
+    --slate:#5F6B76;      /* D 專案執行層 */
+    --slate-soft:#EFF1F3;
+    --amber:#B7791F;      /* 待定/警示 */
+    --amber-soft:#FBF3E2;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+    line-height:1.75;
+    font-size:16px;
+  }
+  .wrap{max-width:960px;margin:0 auto;padding:48px 40px 80px;}
+  @media (max-width:768px){.wrap{padding:28px 20px 60px;}body{font-size:15px;}}
+
+  /* ---------- header ---------- */
+  header{border-bottom:2px solid var(--ink);padding-bottom:24px;margin-bottom:0;}
+  .eyebrow{font-size:13px;letter-spacing:.18em;color:var(--green);font-weight:700;margin-bottom:10px;}
+  h1{font-size:clamp(26px,4.5vw,38px);font-weight:800;line-height:1.3;text-wrap:balance;}
+  .sub{color:var(--ink-2);margin-top:10px;max-width:640px;}
+  .meta{display:flex;gap:18px;margin-top:16px;font-size:13px;color:var(--ink-2);flex-wrap:wrap;}
+  .meta span b{color:var(--ink);font-weight:600;}
+
+  /* ---------- tabs ---------- */
+  .tabs{
+    position:sticky;top:0;z-index:20;
+    background:var(--bg);
+    display:flex;gap:8px;
+    padding:14px 0 0;
+    border-bottom:1.5px solid var(--line);
+    margin-bottom:40px;
+  }
+  .tab-btn{
+    appearance:none;border:none;background:transparent;cursor:pointer;
+    font-family:inherit;font-size:15.5px;font-weight:700;color:var(--ink-2);
+    padding:10px 18px 12px;
+    border-bottom:3px solid transparent;
+    margin-bottom:-1.5px;
+    transition:color .15s;
+  }
+  .tab-btn:hover{color:var(--ink);}
+  .tab-btn:focus-visible{outline:2px solid var(--green);outline-offset:2px;border-radius:6px;}
+  .tab-btn.active{color:var(--green);border-bottom-color:var(--green);}
+  .tab-btn .no{font-size:12px;letter-spacing:.12em;display:block;font-weight:700;opacity:.75;}
+  .panel{scroll-margin-top:86px;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto;}}
+
+  /* ---------- section ---------- */
+  section{margin-bottom:56px;}
+  .sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:8px;}
+  .sec-no{font-size:13px;font-weight:700;letter-spacing:.14em;color:var(--green);white-space:nowrap;}
+  h2{font-size:clamp(20px,3vw,26px);font-weight:800;text-wrap:balance;}
+  .sec-lede{color:var(--ink-2);margin-bottom:24px;max-width:680px;}
+  h3{font-size:17px;font-weight:700;margin:30px 0 12px;}
+  h3 .chip{display:inline-block;font-size:12px;font-weight:700;color:#fff;border-radius:6px;padding:2px 9px;margin-right:8px;vertical-align:2px;}
+
+  /* ---------- 層級樹 ---------- */
+  .layer{background:var(--surface);border:1px solid var(--line);border-radius:10px;margin-bottom:18px;overflow:hidden;}
+  .layer-head{display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid var(--line);}
+  .layer-key{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;
+    font-weight:800;font-size:15px;color:#fff;flex-shrink:0;}
+  .layer-title{font-weight:700;font-size:17px;}
+  .layer-note{font-size:13px;color:var(--ink-2);margin-left:auto;text-align:right;}
+  .layer.a .layer-key{background:var(--green);}
+  .layer.b .layer-key{background:var(--blue);}
+  .layer.c .layer-key{background:var(--copper);}
+  .layer.d .layer-key{background:var(--slate);}
+  .layer.c{border-style:dashed;border-color:var(--copper);border-width:1.5px;}
+
+  .children{padding:14px 20px 18px 20px;display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  @media (max-width:640px){.children{grid-template-columns:1fr;}}
+  .child{position:relative;padding:12px 14px 12px 18px;border-radius:8px;font-size:14.5px;}
+  .layer.a .child{background:var(--green-soft);}
+  .layer.b .child{background:var(--blue-soft);}
+  .layer.c .child{background:var(--copper-soft);}
+  .layer.d .child{background:var(--slate-soft);}
+  .child::before{content:"";position:absolute;left:0;top:10px;bottom:10px;width:3px;border-radius:2px;}
+  .layer.a .child::before{background:var(--green);}
+  .layer.b .child::before{background:var(--blue);}
+  .layer.c .child::before{background:var(--copper);}
+  .layer.d .child::before{background:var(--slate);}
+  .child b{display:block;font-weight:700;font-size:15px;}
+  .child small{color:var(--ink-2);font-size:13px;line-height:1.6;display:block;margin-top:2px;}
+  .child.pending{background:var(--amber-soft);}
+  .child.pending::before{background:var(--amber);}
+
+  .badge{display:inline-block;font-size:12px;font-weight:700;padding:2px 10px;border-radius:20px;margin-left:8px;vertical-align:2px;}
+  .badge.warn{background:var(--amber);color:#fff;}
+  .badge.indep{background:var(--copper);color:#fff;}
+  .badge.core{background:var(--green);color:#fff;}
+
+  /* ---------- 可行性評估 ---------- */
+  .verdict{background:var(--surface);border:1.5px solid var(--amber);border-radius:10px;padding:22px 24px;margin-bottom:22px;}
+  .verdict .v-label{font-size:13px;font-weight:700;letter-spacing:.12em;color:var(--amber);margin-bottom:6px;}
+  .verdict p{margin-top:8px;}
+  .verdict strong{font-weight:800;}
+
+  table{width:100%;border-collapse:collapse;background:var(--surface);font-size:14.5px;}
+  .tbl-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:10px;}
+  th{background:#F2F3EF;text-align:left;font-weight:700;padding:12px 14px;border-bottom:1.5px solid var(--line);white-space:nowrap;}
+  td{padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top;}
+  tr:last-child td{border-bottom:none;}
+  td.good{color:var(--green);font-weight:600;}
+  td.bad{color:#9B3A2F;font-weight:600;}
+  .fill-cell{color:#B4BAB6;font-size:13px;}
+  td .p-tag{display:inline-block;font-weight:800;color:#fff;background:var(--green);border-radius:6px;padding:1px 9px;font-size:13px;}
+  td .p-tag.para{background:var(--slate);}
+
+  /* ---------- 探索:方法說明 ---------- */
+  .method-note{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--green);border-radius:8px;padding:16px 20px;margin-bottom:26px;font-size:14.5px;}
+  .method-note b{font-weight:700;}
+  .method-note ul{margin:6px 0 0 20px;color:var(--ink-2);}
+
+  /* ---------- C 財務細節 ---------- */
+  .fin-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px;}
+  @media (max-width:700px){.fin-grid{grid-template-columns:1fr;}}
+  .fin-card{background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--copper);border-radius:10px;padding:16px 18px;font-size:14px;}
+  .fin-card b{display:block;font-size:15px;font-weight:700;margin-bottom:6px;}
+  .fin-card ul{margin-left:18px;color:var(--ink-2);line-height:1.7;}
+  .fin-card .lv{display:inline-block;background:var(--copper-soft);color:var(--copper);font-weight:700;font-size:12px;border-radius:5px;padding:1px 8px;margin-right:4px;}
+  .acct-tree{font-size:13.5px;color:var(--ink-2);line-height:1.9;margin-top:4px;}
+  .acct-tree code{background:var(--copper-soft);color:var(--ink);border-radius:5px;padding:1px 8px;font-family:inherit;font-size:13px;}
+
+  /* ---------- 甘特 ---------- */
+  .rule-box{background:var(--green-soft);border-radius:10px;padding:18px 22px;margin-bottom:22px;font-size:15px;}
+  .rule-box b{font-weight:800;}
+  .gantt-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface);padding:22px 20px 16px;}
+  .gantt{min-width:640px;}
+  .g-header{display:grid;grid-template-columns:190px repeat(12,1fr);gap:2px;margin-bottom:8px;font-size:12px;color:var(--ink-2);}
+  .g-header .cell{text-align:center;}
+  .g-row{display:grid;grid-template-columns:190px repeat(12,1fr);gap:2px;align-items:center;margin-bottom:7px;}
+  .g-label{font-size:13.5px;font-weight:600;padding-right:10px;line-height:1.4;}
+  .g-label small{display:block;font-weight:400;color:var(--ink-2);font-size:12px;}
+  .g-bar{height:22px;border-radius:4px;}
+  .g-bar.dan{background:var(--green);}
+  .g-bar.eng{background:var(--blue);}
+  .g-bar.eng2{background:#6C89A0;}
+  .g-bar.collab{background:repeating-linear-gradient(45deg,var(--blue),var(--blue) 7px,#3E8A72 7px,#3E8A72 14px);}
+  .g-note{font-size:12.5px;color:var(--ink-2);margin-top:14px;padding-top:12px;border-top:1px dashed var(--line);}
+  .g-legend{display:flex;gap:18px;flex-wrap:wrap;font-size:13px;color:var(--ink-2);margin-bottom:16px;}
+  .g-legend span{display:inline-flex;align-items:center;gap:6px;}
+  .g-legend i{width:22px;height:12px;border-radius:3px;display:inline-block;}
+  .g-legend i.dan{background:var(--green);}
+  .g-legend i.eng{background:var(--blue);}
+  .g-legend i.collab{background:repeating-linear-gradient(45deg,var(--blue),var(--blue) 5px,#3E8A72 5px,#3E8A72 10px);}
+
+  /* ---------- 下一步 ---------- */
+  ol.next{counter-reset:step;list-style:none;}
+  ol.next li{position:relative;padding:0 0 18px 44px;}
+  ol.next li::before{
+    counter-increment:step;content:counter(step);
+    position:absolute;left:0;top:1px;width:28px;height:28px;border-radius:50%;
+    background:var(--green);color:#fff;font-weight:700;font-size:14px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  ol.next li b{font-weight:700;}
+  ol.next li p{color:var(--ink-2);font-size:14.5px;margin-top:2px;}
+
+  footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--line);font-size:13px;color:var(--ink-2);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="eyebrow">系統建置規劃 · 草案 V0.2</div>
+  <h1>啟動家 × 168比網 系統藍圖</h1>
+  <p class="sub">整合品牌官網、內部作業流程與財務管理的系統建置架構。維度一是全系統的層級歸屬,維度二是各項目落地前的需求探索與排程原則。</p>
+  <div class="meta">
+    <span>層級架構 <b>4 大層 · 13 子系統</b></span>
+    <span>待裁決 <b>1 項(合約系統歸屬)</b></span>
+    <span>時程 <b>待需求探索後排定</b></span>
+  </div>
+</header>
+
+<nav class="tabs" aria-label="維度切換">
+  <button class="tab-btn active" data-tab="dim1"><span class="no">維度一</span>層級架構</button>
+  <button class="tab-btn" data-tab="dim2"><span class="no">維度二</span>需求探索與排程</button>
+</nav>
+
+<!-- ================================================= -->
+<!-- ============ TAB 1:維度一 層級架構 ============== -->
+<!-- ================================================= -->
+<div class="panel" id="dim1">
+
+<section>
+  <div class="sec-head"><span class="sec-no">維度一</span><h2>層級架構:大 → 小的系統歸屬</h2></div>
+  <p class="sec-lede">全部項目歸入四個母層級。財務系統依規劃<b>獨立於網站與內部管理後台之外</b>(虛線框);合約系統的歸屬尚待裁決,以警示色標記。</p>
+
+  <div class="layer a">
+    <div class="layer-head">
+      <div class="layer-key">A</div>
+      <div class="layer-title">對外網站層</div>
+      <div class="layer-note">品牌曝光 · 名單獲取 · 物件刊登</div>
+    </div>
+    <div class="children">
+      <div class="child" id="a1-card"><b>A1 168比價王(既有獨立平台)</b><small>推廣買賣單邊代理機制,以廣告投放獲取陌生名單。<b>SEO 實測評級:低</b>——目前僅品牌詞搜得到,「單邊代理」「高雄 包租代管」等業務關鍵字均未進競爭池,短期自然流量無法取代廣告導流;站上已有房市分析文章資產(WordPress+Rank Math,收錄正常無技術障礙),優化方向是既有內容逐篇對應單一關鍵字、棄用自媒體式長標題。定位:<b>廣告導流為主、SEO 為長線副線</b>的獲客平台。※站名以搜尋實測為準,「168比網」查無此站</small></div>
+      <div class="child"><b>A2 啟動家官網 <span class="badge core">核心</span></b><small>品牌前台+物件刊登(業務直接分享官網連結)+後台名單收集與表單分析</small></div>
+      <div class="child"><b>A3 SEO 內容策略</b><small>小而精:先攻屋主端利基文章(鳳山/左營/岡山 租售注意事項),後期延伸買方與租客端</small></div>
+      <div class="child"><b>A4 雙網整合行銷</b><small>兩網獨立不綁死,後續思考資源整合與效益發散</small></div>
+    </div>
+  </div>
+
+  <div class="layer b">
+    <div class="layer-head">
+      <div class="layer-key">B</div>
+      <div class="layer-title">內部管理系統層</div>
+      <div class="layer-note">掛官網後台之下 · 帳密權限控管</div>
+    </div>
+    <div class="children">
+      <div class="child pending"><b>B1 模組化合約系統 <span class="badge warn">歸屬待定</span></b><small>多公版條款模組+勾選產出客製合約+浮水印;是否內嵌官網後台見下方評估</small></div>
+      <div class="child"><b>B2 租客/房東雙重審核</b><small>第一階段 AI 對接政府公開資訊評定資信+第二階段業務面談評分,系統匯整綜合評分供主管決策;核可後延遲 30–60 分鐘回覆客戶</small></div>
+      <div class="child"><b>B3 客服自動化(後半場)</b><small>LINE 官方帳號 × 網站,高重複問題(帶看/看房預約)自動應答過濾首輪需求</small></div>
+      <div class="child"><b>B4 工程派工/任務進度</b><small>修繕裝潢派工條列任務流,自動排優先權,回報結案自動封存</small></div>
+      <div class="child"><b>B5 關懷名單後台</b><small>房東與租客的長期追蹤關懷名單,維持客戶關係</small></div>
+      <div class="child"><b>B6 實價登錄+周邊行情爬蟲</b><small>專用受限帳密,機器人每日定時抓取更新,產出周邊行情分析;優先走後台平面表格資料,避開多層互動式前台</small></div>
+    </div>
+  </div>
+
+  <div class="layer c">
+    <div class="layer-head">
+      <div class="layer-key">C</div>
+      <div class="layer-title">財務系統 <span class="badge indep">獨立系統</span></div>
+      <div class="layer-note">不掛網站後台 · 單向資料傳輸</div>
+    </div>
+    <div class="children">
+      <div class="child"><b>C1 日記總帳(總管理表)</b><small>全部進出帳歸總表,會計科目採三層結構(大類→中類→細項),依「地址案場 × 科目別」樞紐分析自動加總;支援單一包租案的投資人分潤明細</small></div>
+      <div class="child"><b>C2 獎金派發檢視介面(個人分表)</b><small>系統依每位業務合約的抽成配置自動算出獎金;員工個人獨立登入,僅能看自己的歷史薪資與對帳單,無權讀總帳與他人分表</small></div>
+      <div class="child"><b>C3 記帳機器人</b><small>業務在外傳訊息給機器人,自動解析寫入試算表;現金/定金類維持手動輸入</small></div>
+      <div class="child"><b>C4 登入安全</b><small>個人帳密+Google Authenticator 六位動態驗證碼,閒置 30 分鐘自動登出</small></div>
+    </div>
+  </div>
+
+  <div class="layer d">
+    <div class="layer-head">
+      <div class="layer-key">D</div>
+      <div class="layer-title">專案執行層</div>
+      <div class="layer-note">分工 · 時程 · 預算(由開發端主導切分)</div>
+    </div>
+    <div class="children">
+      <div class="child"><b>D1 前端與視覺</b><small>業主品牌設計師調整 VI 定案後,進網頁前端設計;拉群組共同討論</small></div>
+      <div class="child"><b>D2 後端開發與維護</b><small>不完全依賴 AI 產碼;建議引進系統工程師(雅芬先生)負責後端建置與長期協同維護</small></div>
+      <div class="child"><b>D3 需求探索與排序</b><small>開發端列詳細清單,業主填寫習慣與科目細節,排出優先順序</small></div>
+      <div class="child"><b>D4 時程與報價</b><small>依優先順序提供對應時程與報價,供業主編列預算</small></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="sec-no">裁決事項</span><h2>合約系統要不要掛在官網後台底下?</h2></div>
+  <p class="sec-lede">業主希望「一致性行政流程檔案輸出」歸屬在網站管理後台之下。評估兩條路線如下:</p>
+
+  <div class="tbl-scroll">
+    <table>
+      <thead>
+        <tr><th style="width:24%">比較面向</th><th>方案一:內嵌官網後台</th><th>方案二:獨立系統+後台入口</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><b>使用體驗</b></td><td class="good">同一後台,一站到底</td><td class="good">入口掛後台選單+單一登入(SSO),體感相同</td></tr>
+        <tr><td><b>維護風險</b></td><td class="bad">專法每年修法,每次改條款都動到網站主體</td><td class="good">條款模組獨立更版,不碰網站程式</td></tr>
+        <tr><td><b>權限與安全</b></td><td class="bad">與網站共用權限體系,浮水印/嚴格管控要另外隔出</td><td class="good">天生獨立帳密權限,符合原規劃的安全要求</td></tr>
+        <tr><td><b>系統本質</b></td><td class="bad">文件模板引擎與網站 CMS 資料模型幾乎無共用</td><td class="good">行政輔助工具就照行政工具的方式建</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="verdict" style="margin-top:22px;">
+    <div class="v-label">初步結論(待需求探索定案)</div>
+    <p><strong>建議走方案二:系統本體獨立,入口掛在官網後台選單、共用同一組登入。</strong>業主要的「歸屬在後台之下」是入口與帳號的歸屬,不必是程式碼的歸屬——兩者可以同時成立。</p>
+    <p>最終判定的關鍵問題只有一個:<strong>合約是否需要自動帶入官網的物件資料</strong>(地址、租金、房東資訊)?若需要,做 API 介接即可,仍支持獨立建置;若純後台勾選產出,獨立性更沒有懸念。此題列入需求探索首輪釐清。</p>
+  </div>
+</section>
+
+</div><!-- /dim1 -->
+
+<!-- ================================================= -->
+<!-- ============ TAB 2:維度二 探索與排程 ============ -->
+<!-- ================================================= -->
+<div class="panel" id="dim2">
+
+<section>
+  <div class="sec-head"><span class="sec-no">維度二</span><h2>需求探索:各層客製,不用同一張表</h2></div>
+  <p class="sec-lede">四個層級的面向不同,探索問題各自客製,不套通用欄位。</p>
+
+  <div class="method-note">
+    <b>探索範圍界定:</b>
+    <ul>
+      <li><b>人力與工時由開發端評估</b>,不列入業主問卷;探索表只收「業主才知道的答案」。</li>
+      <li><b>D 專案執行層不設探索表</b>——分工切分由開發端主導,回歸人力工時評估。</li>
+      <li>使用者角色、輸入來源、輸出流向<b>只在需要的層級出現</b>:對外網站只有「使用者/業主」兩端,不設角色欄;管理面系統才有完整的角色×輸入×輸出;財務層另有專屬的細部結構。</li>
+    </ul>
+  </div>
+
+  <h3><span class="chip" style="background:var(--green);">A</span>對外網站層 — 只問內容與接收方式</h3>
+  <div class="tbl-scroll">
+    <table>
+      <thead>
+        <tr><th style="width:22%">項目</th><th>要業主回答的問題</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><b>A2 官網物件刊登</b></td><td>物件欄位規格(照片/坪數/格局/租金…)?上下架流程誰負責?表單名單要送到哪裡(LINE 通知/信箱/後台)?</td></tr>
+        <tr><td><b>A3 SEO 內容</b></td><td>首波鎖定哪三組區域關鍵字?文章素材誰提供(業務實務案例)?</td></tr>
+        <tr><td><b>A4 雙網整合</b></td><td>168比網名單與官網名單要不要匯流到同一個後台?</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3><span class="chip" style="background:var(--blue);">B</span>內部管理系統層 — 角色 × 輸入 × 輸出</h3>
+  <div class="tbl-scroll">
+    <table>
+      <thead>
+        <tr><th style="width:17%">項目</th><th style="width:26%">使用者角色(權限層級)</th><th style="width:28%">輸入來源</th><th>輸出流向</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><b>B1 合約系統</b></td><td>業務(勾選產出)/主管(版本管理)</td><td>物件類型+細項條件勾選;<span class="fill-cell">是否自動帶官網物件資料 待確認</span></td><td>浮水印合約檔</td></tr>
+        <tr><td><b>B2 雙重審核</b></td><td>一般業務(只見核可結果)/主管(最終確認鍵)</td><td>政府公開資訊(AI 對接)+業務面談評分</td><td>綜合評分→主管確認→延遲 30–60 分回覆客戶</td></tr>
+        <tr><td><b>B3 客服自動化</b></td><td><span class="fill-cell">QA 庫維護者 待業主指定</span></td><td>LINE 訊息(高頻問題前十大清單 待業主列)</td><td>自動應答/轉真人</td></tr>
+        <tr><td><b>B4 工程派工</b></td><td>回報業務/工班/主管</td><td>修繕裝潢需求(<span class="fill-cell">來源管道 待業主列</span>)</td><td>任務流排序→結案自動封存</td></tr>
+        <tr><td><b>B5 關懷名單</b></td><td>業務</td><td>房東/租客名單+觸發時點(<span class="fill-cell">續約前?節日? 待業主定</span>)</td><td>關懷提醒/訊息</td></tr>
+        <tr><td><b>B6 行情爬蟲</b></td><td>受限專用帳號(非人員操作)</td><td>實價登錄後台平面表格(<span class="fill-cell">帳號權限 待業主提供</span>)</td><td>周邊行情分析(後台檢視)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3><span class="chip" style="background:var(--copper);">C</span>財務系統 — 專屬探索結構(比其他層更細)</h3>
+  <p class="sec-lede" style="margin-bottom:14px;">財務不是單層分類能處理的:光會計科目就是三層結構、細項無數,探索重點是把業主實際的營運支出項一條一條列出來。</p>
+
+  <div class="fin-grid">
+    <div class="fin-card">
+      <b>① 會計科目三層架構(輸入來源的骨幹)</b>
+      <div class="acct-tree">
+        <span class="lv">大類</span>收入/支出/資產負債<br>
+        <span class="lv">中類</span>例:營運支出、案場支出、人事支出<br>
+        <span class="lv">細項</span>業主逐條列出常見營運項目
+      </div>
+      <div style="margin-top:10px;font-size:13.5px;">起手清單供業主增刪:</div>
+      <div class="acct-tree" style="margin-top:4px;">
+        收入端:<code>租金收入</code> <code>代管服務費</code> <code>仲介服務費</code> <code>包租價差</code><br>
+        支出端:<code>修繕維護</code> <code>水電瓦斯</code> <code>清潔</code> <code>廣告行銷</code> <code>規費稅捐</code> <code>保險</code> <code>獎金分潤</code> <code>雜支</code>
+      </div>
+    </div>
+    <div class="fin-card">
+      <b>② 獎金規則(計算引擎的輸入)</b>
+      <ul>
+        <li>每位業務依<b>各自合約</b>的底薪+抽成配置,由業主提供配置表</li>
+        <li>系統依配置自動算出每期獎金,產出個人檢視介面</li>
+        <li>單一包租案(投資案)另設分潤公式,供投資人年度回報</li>
+      </ul>
+    </div>
+    <div class="fin-card">
+      <b>③ 登入結構</b>
+      <ul>
+        <li>每人獨立帳密+<b>Google Authenticator 六位動態驗證碼</b></li>
+        <li>閒置 30 分鐘自動登出(可再縮短)</li>
+        <li>單向資料傳輸:分表看不回總帳</li>
+      </ul>
+    </div>
+    <div class="fin-card">
+      <b>④ 輸出(不特定對象,兩種檢視)</b>
+      <ul>
+        <li>員工端:個人薪資表+歷史對帳單</li>
+        <li>業主端:<b>樞紐分析檢視結構</b>(案場 × 科目自動加總)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="sec-no">優先權</span><h2>建議排程順序</h2></div>
+  <p class="sec-lede">依「地基先行、痛點止血、獨立線平行」三原則排出的建議序,供業主裁決調整。</p>
+  <div class="tbl-scroll">
+    <table>
+      <thead>
+        <tr><th style="width:70px">順位</th><th style="width:30%">項目</th><th>理由</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><span class="p-tag">P1</span></td><td><b>A2 官網+物件刊登</b></td><td>一切對外營運的地基,物件與名單都回歸這裡,其他系統多半依賴它</td></tr>
+        <tr><td><span class="p-tag">P2</span></td><td><b>B1 合約系統</b></td><td>出件品質不一致是現在進行式的痛;獨立建置,可與官網同期平行開工</td></tr>
+        <tr><td><span class="p-tag">P3</span></td><td><b>C 財務系統</b></td><td>薪資對帳每月剛需;獨立系統走另一條線,不佔網站開發人力</td></tr>
+        <tr><td><span class="p-tag">P4</span></td><td><b>B2 雙重審核</b></td><td>包租代管品質核心,但要等官網表單名單先跑起來才有料可審</td></tr>
+        <tr><td><span class="p-tag">P5</span></td><td><b>B6 行情爬蟲</b></td><td>支援估價與實登申報,規格單純可插隊在空檔做</td></tr>
+        <tr><td><span class="p-tag">P6</span></td><td><b>B4 工程派工</b></td><td>先用條列式最小版上線,看板式後續優化</td></tr>
+        <tr><td><span class="p-tag">P7</span></td><td><b>B3 客服自動化</b></td><td>業主自定位為「後半場」;需先累積高頻問題清單</td></tr>
+        <tr><td><span class="p-tag">P8</span></td><td><b>B5 關懷名單</b></td><td>依賴名單與客戶關係資料累積,最後收尾</td></tr>
+        <tr><td><span class="p-tag para">平行</span></td><td><b>A3 SEO 內容</b></td><td>不佔開發人力,文章可即刻開跑累積搜尋權威</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="sec-no">排程原則</span><h2>甘特圖:探索完成才回填實際時程</h2></div>
+
+  <div class="rule-box">
+    <b>排程鐵則:</b>同一項目若需要兩位以上人員,甘特圖上<b>不平行、一律前後串接</b>(例:後端做完 API,前端才接介面);不同項目之間才允許平行進行。
+  </div>
+
+  <div class="gantt-wrap">
+    <div class="g-legend">
+      <span><i class="dan"></i>開發端(Dan)</span>
+      <span><i class="eng"></i>工程師</span>
+      <span><i class="collab"></i>工程師 × AI 協同</span>
+    </div>
+    <div class="gantt">
+      <div class="g-header">
+        <div></div>
+        <div class="cell">W1</div><div class="cell">W2</div><div class="cell">W3</div><div class="cell">W4</div>
+        <div class="cell">W5</div><div class="cell">W6</div><div class="cell">W7</div><div class="cell">W8</div>
+        <div class="cell">W9</div><div class="cell">W10</div><div class="cell">W11</div><div class="cell">W12</div>
+      </div>
+      <div class="g-row">
+        <div class="g-label">需求探索訪談<small>全項目</small></div>
+        <div class="g-bar dan" style="grid-column:2 / span 2;"></div>
+      </div>
+      <div class="g-row">
+        <div class="g-label">排序+報價<small>業主裁決分期</small></div>
+        <div class="g-bar dan" style="grid-column:4 / span 1;"></div>
+      </div>
+      <div class="g-row">
+        <div class="g-label">P1 官網後端<small>物件刊登 API,工程師設計</small></div>
+        <div class="g-bar eng" style="grid-column:5 / span 3;"></div>
+      </div>
+      <div class="g-row">
+        <div class="g-label">&nbsp;<small>└ P1 官網前端(接續後端)</small></div>
+        <div class="g-bar eng2" style="grid-column:8 / span 3;"></div>
+      </div>
+      <div class="g-row">
+        <div class="g-label">B 類:結構設計<small>各系統框架由開發端先定</small></div>
+        <div class="g-bar dan" style="grid-column:5 / span 2;"></div>
+      </div>
+      <div class="g-row">
+        <div class="g-label">&nbsp;<small>└ B 類:完整 UI 建置(接續結構)</small></div>
+        <div class="g-bar collab" style="grid-column:7 / span 4;"></div>
+      </div>
+      <div class="g-row">
+        <div class="g-label">P3 財務系統<small>開發端全權,獨立線平行</small></div>
+        <div class="g-bar dan" style="grid-column:6 / span 5;"></div>
+      </div>
+      <div class="g-note">※ 本圖為<b>排程邏輯示意,非承諾時程</b>——顏色代表負責端:官網後端由工程師設計;B 類內部管理系統由開發端先定結構、工程師與 AI 協同接手完整 UI(同項目前後串接示範);財務系統由開發端全權處理,獨立線平行。實際週數待探索完成、估工時後回填。</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="sec-no">下一步</span><h2>從藍圖到開工</h2></div>
+  <ol class="next">
+    <li><b>業主確認層級架構與優先權建議</b><p>四大層歸屬、合約系統歸屬(方案二)、P1–P8 順序有無異議。</p></li>
+    <li><b>約時間跑需求探索訪談</b><p>依各層客製問題逐項訪談;財務層先請業主備妥營運支出項與各業務獎金配置。</p></li>
+    <li><b>開發端估人力工時、出時程與報價</b><p>探索完成後由開發端評估,產出正式甘特圖與分期報價,供業主編列預算。</p></li>
+  </ol>
+</section>
+
+</div><!-- /dim2 -->
+
+<footer>
+  <span>啟動家 × 168比網 · 系統建置藍圖草案</span>
+  <span>V0.2 · 2026-08</span>
+</footer>
+
+</div>
+
+<script>
+  const btns = document.querySelectorAll('.tab-btn');
+  const panels = document.querySelectorAll('.panel');
+
+  function setActive(id){
+    btns.forEach(b => b.classList.toggle('active', b.dataset.tab === id));
+  }
+
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.getElementById(btn.dataset.tab).scrollIntoView();
+      setActive(btn.dataset.tab);
+    });
+  });
+
+  // 捲動時自動亮起目前所在維度的標籤
+  const spy = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) setActive(e.target.id); });
+  }, {rootMargin: '-20% 0px -70% 0px'});
+  panels.forEach(p => spy.observe(p));
+</script>
+</body>
+</html>
