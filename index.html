@@ -245,7 +245,7 @@
     </div>
     <div class="children">
       <div class="child pending"><b>B1 模組化合約系統 <span class="badge warn">歸屬待定</span></b><small>多公版條款模組+勾選產出客製合約+浮水印;是否內嵌官網後台見下方評估。<b>新增(08-19):</b>委託書/合約線上(遠端)簽署模組——法規查核結論見下方「線上簽約法律效力」</small></div>
-      <div class="child"><b>B2 租客/房東雙重審核</b><small>第一階段 AI 對接政府公開資訊評定資信+第二階段業務面談評分,系統匯整綜合評分供主管決策;核可後延遲 30–60 分鐘回覆客戶</small></div>
+      <div class="child"><b>B2 租客/房東雙重審核</b><small>第一階段「資料抓取」(AI 依業主指定的網頁來源/會員後台抓取資料評定資信)+第二階段業務面談評分,系統匯整綜合評分供主管決策;核可後延遲 30–60 分鐘回覆客戶</small></div>
       <div class="child"><b>B3 客服自動化(後半場)</b><small>LINE 官方帳號 × 網站,高重複問題(帶看/看房預約)自動應答過濾首輪需求</small></div>
       <div class="child"><b>B4 工程派工/任務進度</b><small>修繕裝潢派工條列任務流,自動排優先權,回報結案自動封存</small></div>
       <div class="child"><b>B5 關懷名單後台</b><small>房東與租客的長期追蹤關懷名單,維持客戶關係</small></div>
@@ -368,7 +368,7 @@
       </thead>
       <tbody>
         <tr><td><b>B1 合約系統</b></td><td>業務(勾選產出)/主管(版本管理)</td><td>物件類型+細項條件勾選;<span class="fill-cell">是否自動帶官網物件資料 待確認</span></td><td>浮水印合約檔</td></tr>
-        <tr><td><b>B2 雙重審核</b></td><td>一般業務(只見核可結果)/主管(最終確認鍵)</td><td>政府公開資訊(AI 對接)+業務面談評分</td><td>綜合評分→主管確認→延遲 30–60 分回覆客戶</td></tr>
+        <tr><td><b>B2 雙重審核</b></td><td>一般業務(只見核可結果)/主管(最終確認鍵)</td><td>資料抓取(AI 依指定來源/會員後台抓取)+業務面談評分</td><td>綜合評分→主管確認→延遲 30–60 分回覆客戶</td></tr>
         <tr><td><b>B3 客服自動化</b></td><td><span class="fill-cell">QA 庫維護者 待業主指定</span></td><td>LINE 訊息(高頻問題前十大清單 待業主列)</td><td>自動應答/轉真人</td></tr>
         <tr><td><b>B4 工程派工</b></td><td>回報業務/工班/主管</td><td>修繕裝潢需求(<span class="fill-cell">來源管道 待業主列</span>)</td><td>任務流排序→結案自動封存</td></tr>
         <tr><td><b>B5 關懷名單</b></td><td>業務</td><td>房東/租客名單+觸發時點(<span class="fill-cell">續約前?節日? 待業主定</span>)</td><td>關懷提醒/訊息</td></tr>
@@ -526,15 +526,15 @@
       <thead><tr><th style="width:60px">#</th><th style="width:24%">項目</th><th>需要業主提供的細節</th></tr></thead>
       <tbody>
         <tr><td>A-1</td><td><b>站名定案</b></td><td class="q">168比網 / 168比價王 擇一,全頁與所有文件統一<small>SEO 實測站名為「168比價王」</small></td></tr>
-        <tr><td>A-2</td><td><b>租管/買賣大分類</b></td><td class="q">兩大類底下的子分類(例:租管→整層/套房/店面;買賣→住宅/土地/廠辦)?一個物件會不會同時屬兩類(可租可售)?</td></tr>
-        <tr><td>A-3</td><td><b>物件欄位規格</b></td><td class="q">照片張數上限、坪數/格局/樓層/租金或售價/管理費/車位…完整欄位清單;上下架流程誰負責;表單名單送到哪(LINE 通知/信箱/後台)</td></tr>
+        <tr><td>A-2</td><td><b>租管/買賣大分類</b></td><td class="q">兩大類底下的子分類(例:租管→整層/套房/店面;買賣→住宅/土地/廠辦)?<br><b>已定(08-19):</b>一個物件可同時屬兩類(可租可售)。</td></tr>
+        <tr><td>A-3</td><td><b>物件欄位規格</b></td><td class="q">坪數/格局/樓層/租金或售價/管理費/車位…完整欄位清單;上下架流程誰負責;表單名單送到哪(LINE 通知/信箱/後台)<br><b>已定(08-19):</b>照片張數不設上限,採動態擴充(高檔物件照片會較多)。</td></tr>
         <tr><td>A-4</td><td><b>Google Map 連結</b></td><td class="q">只標位置,還是要周邊機能圖層(捷運/學校/商場)?地址顯示精確度(完整門牌 vs 模糊到路段——租屋常需模糊)</td></tr>
-        <tr><td>A-5</td><td><b>內建關鍵字</b></td><td class="q">關鍵字清單由業主維護固定清單,還是業務刊登時自由輸入?每物件可選幾個?要不要同時當站內篩選條件?<small>已確認用途=刊登時選取、強化被搜尋機會</small></td></tr>
-        <tr><td>A-6</td><td><b>會員制(前台租客/買家)</b> <span class="status wait">影響排序</span></td><td class="q">租客與買家是否分開註冊?登入方式(LINE Login/Email/手機 OTP)?註冊要收哪些欄位?「鼓勵填單」的誘因=解鎖工具/收藏物件/新物件通知/其他?</td></tr>
-        <tr><td>A-7</td><td><b>業務表單:屋主合作(包租/賣屋)</b></td><td class="q">包租表單與賣屋表單各要哪些欄位?送達何處(直接進 B2 審核流程?LINE 通知業務?)屋主填表後是否也成為會員?</td></tr>
-        <tr><td>A-8</td><td><b>投報試算工具</b> <span class="status wait">影響排序</span></td><td class="q">①提供簡報中的數值計算公式(開發端據此實作);②入門版開放哪些輸入欄(總價/租金/貸款成數/利率/持有成本…)、輸出哪些指標(毛投報/淨投報/現金流);③進階版多什麼(稅費/空置率/槓桿後 IRR/多物件比較/存檔);④試算結果要不要存檔或寄信;⑤免費使用者的資料是否視為名單<small>業主已說明:外=入門為大眾免費工具,內=同簡報數值計算;本列即「外層級細節」</small></td></tr>
-        <tr><td>A-9</td><td><b>平面圖製作工具</b> <span class="status wait">影響排序</span></td><td class="q">①產出用途:刊登用格局圖?給客戶看的配置圖?②入門/進階功能邊界(拖拉房間門窗 vs 家具庫/高解析匯出/3D)③匯出格式(PNG/PDF)④接受嵌入第三方工具(白牌)還是一定要自建?<small>業主已確認:網站工具,非軟裝外掛。自建為獨立編輯器,工作量與費用差距大,此題決定排序</small></td></tr>
-        <tr><td>A-10</td><td><b>SEO 內容</b></td><td class="q">首波鎖定哪三組區域關鍵字?文章素材誰提供(業務實務案例)?</td></tr>
+        <tr><td>A-5</td><td><b>內建關鍵字</b></td><td class="q"><b>定義(08-19):</b>內建關鍵字=網站的站內搜尋系統——訪客搜「左營區」或「左營」,就跳出左營的物件。實作結構:物件本身建標籤系統,或直接匹配物件 Title / Meta。<br>待業主:關鍵字清單由業主維護固定清單,還是業務刊登時自由輸入?每物件可選幾個?</td></tr>
+        <tr><td>A-6</td><td><b>會員制(前台租客/買家)</b></td><td class="q"><b>已定(08-19):</b>註冊必填 Email + 手機號碼;快速登入預設 Google 與 LINE。<br>待業主:租客與買家是否分開註冊?「鼓勵填單」的誘因=解鎖工具/收藏物件/新物件通知/其他?</td></tr>
+        <tr><td>A-7</td><td><b>業務表單:屋主合作(包租/賣屋)</b></td><td class="q">包租表單與賣屋表單各要哪些欄位?送達何處(直接進 B2 審核流程?LINE 通知業務?)<br><b>已定(08-19):</b>屋主填表後<b>不</b>預設為會員;要成為會員須自行走正常註冊流程(尊重使用者意願)。</td></tr>
+        <tr><td>A-8</td><td><b>投報試算工具</b> <span class="status wait">影響排序</span></td><td class="q">① 提供簡報中的數值計算公式(開發端據此實作)<br>② 入門版開放哪些輸入欄(總價/租金/貸款成數/利率/持有成本…)、輸出哪些指標(毛投報/淨投報/現金流)<br>③ 進階版多什麼(稅費/空置率/槓桿後 IRR/多物件比較/存檔)<br>④ 試算結果要不要存檔或寄信<br>⑤ 免費使用者的資料是否視為名單<br><small>業主已說明:外=入門為大眾免費工具,內=同簡報數值計算;本列即「外層級細節」</small></td></tr>
+        <tr><td>A-9</td><td><b>平面圖製作工具</b> <span class="status wait">影響排序</span></td><td class="q">① 產出用途:刊登用格局圖?給客戶看的配置圖?<br>② 入門/進階功能邊界(拖拉房間門窗 vs 家具庫/高解析匯出/3D)<br>③ 匯出格式(PNG/PDF)<br>④ 接受嵌入第三方工具(白牌)還是一定要自建?<br><small>業主已確認:網站工具,非軟裝外掛。自建為獨立編輯器,工作量與費用差距大,此題決定排序</small></td></tr>
+        <tr><td>A-10</td><td><b>SEO 內容</b></td><td class="q"><b>改由開發端處理(08-19):</b>首波關鍵字不需業主先指定區域/主題,由開發端做關鍵字市場調查後提案。<br>待業主:文章素材誰提供(業務實務案例)?</td></tr>
         <tr><td>A-11</td><td><b>雙網整合</b></td><td class="q">168比價王名單與官網名單要不要匯流到同一個後台?</td></tr>
       </tbody>
     </table>
@@ -545,12 +545,12 @@
     <table>
       <thead><tr><th style="width:60px">#</th><th style="width:24%">項目</th><th>需要業主提供的細節</th></tr></thead>
       <tbody>
-        <tr><td>B-1</td><td><b>合約系統</b> <span class="status wait">影響排序</span></td><td class="q">①合約種類清單(委託銷售/租賃委託/包租/代管/租約/其他)與現行範本檔;②條款怎麼切模組(哪些是公版、哪些是勾選條件);③是否需自動帶入官網物件資料(地址/租金/房東)——決定合約系統歸屬的關鍵題;④版本管理由誰負責</td></tr>
-        <tr><td>B-2</td><td><b>線上簽署(新增)</b></td><td class="q">①簽署流程:業務先簽再寄客戶遠端簽?還是現場平板簽?②身分驗證要求(簡訊 OTP/Email/自然人憑證)③簽完檔案存放處、是否需浮水印與時戳④是否要先向地政司/經紀公會書面確認可用電子簽章(開發端建議要)</td></tr>
-        <tr><td>B-3</td><td><b>雙重審核</b></td><td class="q">AI 要對接哪些政府公開資訊(項目清單);業務面談評分表的題目與配分;主管確認後通知客戶的管道</td></tr>
-        <tr><td>B-4</td><td><b>客服自動化</b></td><td class="q">高頻問題前十大清單;QA 庫由誰維護</td></tr>
-        <tr><td>B-5</td><td><b>工程派工</b></td><td class="q">修繕/裝潢需求的來源管道(租客 LINE?業務回報?);誰排優先權</td></tr>
-        <tr><td>B-6</td><td><b>關懷名單</b></td><td class="q">觸發時點(續約前幾天?節日?入住滿月?);關懷訊息由誰發</td></tr>
+        <tr><td>B-1</td><td><b>合約系統</b> <span class="status wait">影響排序</span></td><td class="q">① 合約種類清單(委託銷售/租賃委託/包租/代管/租約/其他)與現行範本檔——請把現行常用的合約範本不論幾種全部提供,開發端分門別類後做結構化處理<br>② 條款怎麼切模組(哪些是公版、哪些是勾選條件)<br>③ 是否需自動帶入官網物件資料(地址/租金/房東)——決定合約系統歸屬的關鍵題<br>④ 版本管理由誰負責</td></tr>
+        <tr><td>B-2</td><td><b>線上簽署(新增)</b></td><td class="q">① 簽署流程:業務先簽再寄客戶遠端簽?還是現場平板簽?<br>② 身分驗證要求(簡訊 OTP/Email/自然人憑證)<br>③ 簽完檔案存放處、是否需浮水印與時戳<br>④ 是否要先向地政司/經紀公會書面確認可用電子簽章(開發端建議要)</td></tr>
+        <tr><td>B-3</td><td><b>資料抓取</b><small>(原「雙重審核」的 AI 對接部分,名詞修正)</small></td><td class="q">① 要參照的網頁來源清單(政府公開資訊或其他)<br>② 若來源是需相關產業資格才能登入的會員後台:需另寫代理 Agent 負責登入該後台、依指定欄位抓取資料(開發端預估 1~2 個工作天)<br>③ 業務面談評分表的題目與配分<br>④ 主管確認後通知客戶的管道</td></tr>
+        <tr><td>B-4</td><td><b>客服自動化</b></td><td class="q">常見問題<b>類組</b>有幾種?請依開發端提供的「客服 QA 結構範本」試算表填寫:主題索引(每個類組的主題名+常見問法關鍵字)→ 各主題分頁(細項分類/關鍵字/標準回覆)→ 回覆庫;QA 庫由誰維護</td></tr>
+        <tr><td>B-5</td><td><b>工程派工</b></td><td class="q">修繕/裝潢需求的來源管道(租客 LINE?業務回報?);誰排優先權<br><b>新增:</b>廠商清單與平常聯繫方式(電話/LINE/Email)——這決定系統是直接發送給廠商,還是發給我方窗口、再由窗口聯繫對應廠商</td></tr>
+        <tr><td>B-6</td><td><b>關懷名單</b></td><td class="q">結構比照行事曆提醒機器人,需確認:<br>① 預設觸發時點(續約前幾天?節日?入住滿月?)<br>② 每位對象要發送幾則<br>③ 每則的預期發送時間(多久之前提醒/關懷)<br>④ 直接發送給房東/租客,還是發給對應業務窗口、由其做人工關懷或提醒</td></tr>
         <tr><td>B-7</td><td><b>行情爬蟲</b></td><td class="q">實價登錄後台帳號權限;要看哪幾區、多大半徑的周邊行情</td></tr>
       </tbody>
     </table>
@@ -561,10 +561,10 @@
     <table>
       <thead><tr><th style="width:60px">#</th><th style="width:24%">項目</th><th>需要業主提供的細節</th></tr></thead>
       <tbody>
-        <tr><td>C-1</td><td><b>會計科目</b></td><td class="q">依起手清單增刪,逐條列出實際營運收入/支出細項</td></tr>
-        <tr><td>C-2</td><td><b>獎金配置</b></td><td class="q">每位業務的底薪+抽成配置表;單一包租(投資)案的分潤公式</td></tr>
+        <tr><td>C-1</td><td><b>會計科目</b></td><td class="q">請提供<b>至少一個年度</b>的日常收入與支出明細紀錄(帳冊/Excel/銀行明細皆可);開發端據此歸類並訂定會計科目(三層結構)</td></tr>
+        <tr><td>C-2</td><td><b>獎金配置</b></td><td class="q">每位業務預期發配的獎金公式,寫成 SOP 紀錄;若不同業務發配方式不同,可改為獎金欄位手動輸入、後續計算自動抓取該欄位值;單一包租(投資)案的分潤公式</td></tr>
         <tr><td>C-3</td><td><b>權限</b></td><td class="q">誰能看總帳;分表是否要看到同組他人</td></tr>
-        <tr><td>C-4</td><td><b>記帳機器人</b></td><td class="q">業務回報格式範例(幾則實際訊息)</td></tr>
+        <tr><td>C-4</td><td><b>記帳機器人</b></td><td class="q">業務回報格式範例(幾則實際訊息)<br><b>說明:</b>記帳機器人會提供公式化的請款單/報帳單供人員填寫;請業主決定走<b>電子審核</b>或<b>紙本審核</b>。電子審核=線上填寫請款單與項目選擇 → 送出 → 主管審批 → 核可後記帳端依項目進行撥配設定</td></tr>
       </tbody>
     </table>
   </div>
@@ -584,19 +584,20 @@
 
 <section>
   <div class="sec-head"><span class="sec-no">進度</span><h2>開發端目前進度:估時與尋價</h2></div>
-  <p class="sec-lede">各項目的預期製作時間與報價由開發端填入;標「尋價中」者為需外部服務商/工程師報價的項目,待回覆後更新。</p>
+  <p class="sec-lede">各項目的預期製作時間與報價由開發端填入;標「尋價中」者為需外部服務商/工程師報價的項目,待回覆後更新。開發端自行製作部分以實際工時計價;「前端官網使用者互動元件」與「後端內部人員行政 UI 介面」同時向工程師尋價並詢問估算時間。</p>
   <div class="tbl-scroll">
     <table>
       <thead><tr><th style="width:26%">項目</th><th style="width:110px">狀態</th><th style="width:20%">預期製作時間</th><th style="width:16%">報價</th><th>備註</th></tr></thead>
       <tbody>
-        <tr><td><b>P1 A2 官網+物件刊登</b>(含租管/買賣分類、Google Map、關鍵字)</td><td><span class="status est">估時中</span></td><td class="fill-cell">待填</td><td class="fill-cell">待填</td><td>後端 API 由工程師設計,工程師報價尋價中</td></tr>
-        <tr><td><b>A5 會員制+A6 投報試算</b></td><td><span class="status est">估時中</span></td><td class="fill-cell">待填</td><td class="fill-cell">待填</td><td>待業主 A-6/A-8 回覆後估</td></tr>
+        <tr><td><b>P1 A2 官網+物件刊登</b>(含租管/買賣分類、Google Map、關鍵字)</td><td><span class="status quote">尋價中</span></td><td class="fill-cell">待填</td><td class="fill-cell">待填</td><td>前端官網使用者互動元件 + 後端內部行政 UI 介面:工程師尋價中(含估算時間);後端 API 由工程師設計</td></tr>
+        <tr><td><b>A5 會員制</b></td><td><span class="status est">已估</span></td><td><b>0.5~1 天</b></td><td class="fill-cell">待填</td><td>Email+手機註冊、Google/LINE 快速登入</td></tr>
+        <tr><td><b>A6 投報試算</b></td><td><span class="status est">估時中</span></td><td class="fill-cell">待填</td><td class="fill-cell">待填</td><td>待業主 A-8 回覆後估</td></tr>
         <tr><td><b>A6 平面圖工具</b></td><td><span class="status quote">尋價中</span></td><td class="fill-cell">待填</td><td class="fill-cell">待填</td><td>第三方白牌 vs 自建兩案並行尋價</td></tr>
         <tr><td><b>P2 B1 合約系統</b></td><td><span class="status est">估時中</span></td><td class="fill-cell">待填</td><td class="fill-cell">待填</td><td>待合約種類與範本(B-1)</td></tr>
         <tr><td><b>B1 線上簽署模組</b></td><td><span class="status quote">尋價中</span></td><td class="fill-cell">待填</td><td class="fill-cell">待填</td><td>電子簽章服務商(按份/按月計費)尋價中</td></tr>
-        <tr><td><b>P3 C 財務系統</b></td><td><span class="status est">估時中</span></td><td class="fill-cell">待填</td><td class="fill-cell">待填</td><td>開發端全權;待科目與獎金配置(C-1/C-2)</td></tr>
-        <tr><td><b>P4 B2 雙重審核</b></td><td><span class="status est">估時中</span></td><td class="fill-cell">待填</td><td class="fill-cell">待填</td><td>待政府公開資訊項目清單(B-3)</td></tr>
-        <tr><td><b>P5 B6 行情爬蟲</b></td><td><span class="status est">估時中</span></td><td class="fill-cell">待填</td><td class="fill-cell">待填</td><td></td></tr>
+        <tr><td><b>P3 C 財務系統 + C4 記帳機器人</b></td><td><span class="status est">已估</span></td><td><b>1 週</b></td><td class="fill-cell">待填</td><td>開發端全權;待一年度收支明細與獎金公式 SOP(C-1/C-2)</td></tr>
+        <tr><td><b>P4 B2 雙重審核(資料抓取)</b></td><td><span class="status est">已估</span></td><td><b>1~2 個工作天</b></td><td class="fill-cell">待填</td><td>若來源為需登入的會員後台,含代理 Agent 登入抓取;待來源清單(B-3)</td></tr>
+        <tr><td><b>P5 B6 行情爬蟲</b></td><td><span class="status est">已估</span></td><td><b>2~3 天</b></td><td class="fill-cell">待填</td><td>待實價登錄後台帳號權限(B-7)</td></tr>
         <tr><td><b>P6 B4 工程派工</b></td><td><span class="status est">估時中</span></td><td class="fill-cell">待填</td><td class="fill-cell">待填</td><td>最小條列版先上</td></tr>
         <tr><td><b>P7 B3 客服自動化</b></td><td><span class="status est">估時中</span></td><td class="fill-cell">待填</td><td class="fill-cell">待填</td><td>LINE 官方帳號方案費用另計</td></tr>
         <tr><td><b>P8 B5 關懷名單</b></td><td><span class="status est">估時中</span></td><td class="fill-cell">待填</td><td class="fill-cell">待填</td><td></td></tr>
@@ -610,7 +611,7 @@
 
 <footer>
   <span>啟動家 × 168比網 · 系統建置藍圖草案</span>
-  <span>V0.3 · 2026-08-19</span>
+  <span>V0.4 · 2026-08-19</span>
 </footer>
 
 </div>
