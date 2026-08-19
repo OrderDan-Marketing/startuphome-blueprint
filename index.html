@@ -28,17 +28,17 @@
     color:var(--ink);
     font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
     line-height:1.75;
-    font-size:16px;
+    font-size:18px;
   }
   .wrap{max-width:960px;margin:0 auto;padding:48px 40px 80px;}
-  @media (max-width:768px){.wrap{padding:28px 20px 60px;}body{font-size:15px;}}
+  @media (max-width:768px){.wrap{padding:28px 20px 60px;}body{font-size:17px;}}
 
   /* ---------- header ---------- */
   header{border-bottom:2px solid var(--ink);padding-bottom:24px;margin-bottom:0;}
-  .eyebrow{font-size:13px;letter-spacing:.18em;color:var(--green);font-weight:700;margin-bottom:10px;}
+  .eyebrow{font-size:17px;letter-spacing:.18em;color:var(--green);font-weight:700;margin-bottom:10px;}
   h1{font-size:clamp(26px,4.5vw,38px);font-weight:800;line-height:1.3;text-wrap:balance;}
   .sub{color:var(--ink-2);margin-top:10px;max-width:640px;}
-  .meta{display:flex;gap:18px;margin-top:16px;font-size:13px;color:var(--ink-2);flex-wrap:wrap;}
+  .meta{display:flex;gap:18px;margin-top:16px;font-size:15px;color:var(--ink-2);flex-wrap:wrap;}
   .meta span b{color:var(--ink);font-weight:600;}
 
   /* ---------- tabs ---------- */
@@ -61,7 +61,7 @@
   .tab-btn:hover{color:var(--ink);}
   .tab-btn:focus-visible{outline:2px solid var(--green);outline-offset:2px;border-radius:6px;}
   .tab-btn.active{color:var(--green);border-bottom-color:var(--green);}
-  .tab-btn .no{font-size:12px;letter-spacing:.12em;display:block;font-weight:700;opacity:.75;}
+  .tab-btn .no{font-size:14px;letter-spacing:.12em;display:block;font-weight:700;opacity:.75;}
   .panel{scroll-margin-top:86px;}
   html{scroll-behavior:smooth;}
   @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto;}}
@@ -69,19 +69,19 @@
   /* ---------- section ---------- */
   section{margin-bottom:56px;}
   .sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:8px;}
-  .sec-no{font-size:13px;font-weight:700;letter-spacing:.14em;color:var(--green);white-space:nowrap;}
+  .sec-no{font-size:17px;font-weight:700;letter-spacing:.14em;color:var(--green);white-space:nowrap;}
   h2{font-size:clamp(20px,3vw,26px);font-weight:800;text-wrap:balance;}
   .sec-lede{color:var(--ink-2);margin-bottom:24px;max-width:680px;}
-  h3{font-size:17px;font-weight:700;margin:30px 0 12px;}
-  h3 .chip{display:inline-block;font-size:12px;font-weight:700;color:#fff;border-radius:6px;padding:2px 9px;margin-right:8px;vertical-align:2px;}
+  h3{font-size:21px;font-weight:700;margin:30px 0 12px;}
+  h3 .chip{display:inline-block;font-size:14px;font-weight:700;color:#fff;border-radius:6px;padding:2px 9px;margin-right:8px;vertical-align:2px;}
 
   /* ---------- 層級樹 ---------- */
   .layer{background:var(--surface);border:1px solid var(--line);border-radius:10px;margin-bottom:18px;overflow:hidden;}
   .layer-head{display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid var(--line);}
-  .layer-key{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;
-    font-weight:800;font-size:15px;color:#fff;flex-shrink:0;}
-  .layer-title{font-weight:700;font-size:17px;}
-  .layer-note{font-size:13px;color:var(--ink-2);margin-left:auto;text-align:right;}
+  .layer-key{width:38px;height:38px;border-radius:8px;display:flex;align-items:center;justify-content:center;
+    font-weight:800;font-size:19px;color:#fff;flex-shrink:0;}
+  .layer-title{font-weight:700;font-size:21px;}
+  .layer-note{font-size:15px;color:var(--ink-2);margin-left:auto;text-align:right;}
   .layer.a .layer-key{background:var(--green);}
   .layer.b .layer-key{background:var(--blue);}
   .layer.c .layer-key{background:var(--copper);}
@@ -90,7 +90,7 @@
 
   .children{padding:14px 20px 18px 20px;display:grid;grid-template-columns:1fr 1fr;gap:10px;}
   @media (max-width:640px){.children{grid-template-columns:1fr;}}
-  .child{position:relative;padding:12px 14px 12px 18px;border-radius:8px;font-size:14.5px;}
+  .child{position:relative;padding:12px 14px 12px 18px;border-radius:8px;font-size:16.5px;}
   .layer.a .child{background:var(--green-soft);}
   .layer.b .child{background:var(--blue-soft);}
   .layer.c .child{background:var(--copper-soft);}
@@ -100,65 +100,65 @@
   .layer.b .child::before{background:var(--blue);}
   .layer.c .child::before{background:var(--copper);}
   .layer.d .child::before{background:var(--slate);}
-  .child b{display:block;font-weight:700;font-size:15px;}
-  .child small{color:var(--ink-2);font-size:13px;line-height:1.6;display:block;margin-top:2px;}
+  .child b{display:block;font-weight:700;font-size:19px;}
+  .child small{color:var(--ink-2);font-size:15px;line-height:1.6;display:block;margin-top:2px;}
   .child.pending{background:var(--amber-soft);}
   .child.pending::before{background:var(--amber);}
 
-  .badge{display:inline-block;font-size:12px;font-weight:700;padding:2px 10px;border-radius:20px;margin-left:8px;vertical-align:2px;}
+  .badge{display:inline-block;font-size:14px;font-weight:700;padding:2px 10px;border-radius:20px;margin-left:8px;vertical-align:2px;}
   .badge.warn{background:var(--amber);color:#fff;}
   .badge.indep{background:var(--copper);color:#fff;}
   .badge.core{background:var(--green);color:#fff;}
 
   /* ---------- 可行性評估 ---------- */
   .verdict{background:var(--surface);border:1.5px solid var(--amber);border-radius:10px;padding:22px 24px;margin-bottom:22px;}
-  .verdict .v-label{font-size:13px;font-weight:700;letter-spacing:.12em;color:var(--amber);margin-bottom:6px;}
+  .verdict .v-label{font-size:17px;font-weight:700;letter-spacing:.12em;color:var(--amber);margin-bottom:6px;}
   .verdict p{margin-top:8px;}
   .verdict strong{font-weight:800;}
 
-  table{width:100%;border-collapse:collapse;background:var(--surface);font-size:14.5px;}
+  table{width:100%;border-collapse:collapse;background:var(--surface);font-size:16.5px;}
   .tbl-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:10px;}
   th{background:#F2F3EF;text-align:left;font-weight:700;padding:12px 14px;border-bottom:1.5px solid var(--line);white-space:nowrap;}
   td{padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top;}
   tr:last-child td{border-bottom:none;}
   td.good{color:var(--green);font-weight:600;}
   td.bad{color:#9B3A2F;font-weight:600;}
-  .fill-cell{color:#B4BAB6;font-size:13px;}
-  td .p-tag{display:inline-block;font-weight:800;color:#fff;background:var(--green);border-radius:6px;padding:1px 9px;font-size:13px;}
+  .fill-cell{color:#B4BAB6;font-size:15px;}
+  td .p-tag{display:inline-block;font-weight:800;color:#fff;background:var(--green);border-radius:6px;padding:1px 9px;font-size:15px;}
   td .p-tag.para{background:var(--slate);}
 
   /* ---------- 探索:方法說明 ---------- */
-  .method-note{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--green);border-radius:8px;padding:16px 20px;margin-bottom:26px;font-size:14.5px;}
+  .method-note{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--green);border-radius:8px;padding:16px 20px;margin-bottom:26px;font-size:16.5px;}
   .method-note b{font-weight:700;}
   .method-note ul{margin:6px 0 0 20px;color:var(--ink-2);}
 
   /* ---------- C 財務細節 ---------- */
   .fin-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px;}
   @media (max-width:700px){.fin-grid{grid-template-columns:1fr;}}
-  .fin-card{background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--copper);border-radius:10px;padding:16px 18px;font-size:14px;}
-  .fin-card b{display:block;font-size:15px;font-weight:700;margin-bottom:6px;}
+  .fin-card{background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--copper);border-radius:10px;padding:16px 18px;font-size:16px;}
+  .fin-card b{display:block;font-size:19px;font-weight:700;margin-bottom:6px;}
   .fin-card ul{margin-left:18px;color:var(--ink-2);line-height:1.7;}
-  .fin-card .lv{display:inline-block;background:var(--copper-soft);color:var(--copper);font-weight:700;font-size:12px;border-radius:5px;padding:1px 8px;margin-right:4px;}
-  .acct-tree{font-size:13.5px;color:var(--ink-2);line-height:1.9;margin-top:4px;}
-  .acct-tree code{background:var(--copper-soft);color:var(--ink);border-radius:5px;padding:1px 8px;font-family:inherit;font-size:13px;}
+  .fin-card .lv{display:inline-block;background:var(--copper-soft);color:var(--copper);font-weight:700;font-size:14px;border-radius:5px;padding:1px 8px;margin-right:4px;}
+  .acct-tree{font-size:15.5px;color:var(--ink-2);line-height:1.9;margin-top:4px;}
+  .acct-tree code{background:var(--copper-soft);color:var(--ink);border-radius:5px;padding:1px 8px;font-family:inherit;font-size:15px;}
 
   /* ---------- 甘特 ---------- */
-  .rule-box{background:var(--green-soft);border-radius:10px;padding:18px 22px;margin-bottom:22px;font-size:15px;}
+  .rule-box{background:var(--green-soft);border-radius:10px;padding:18px 22px;margin-bottom:22px;font-size:17px;}
   .rule-box b{font-weight:800;}
   .gantt-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface);padding:22px 20px 16px;}
   .gantt{min-width:640px;}
-  .g-header{display:grid;grid-template-columns:190px repeat(12,1fr);gap:2px;margin-bottom:8px;font-size:12px;color:var(--ink-2);}
+  .g-header{display:grid;grid-template-columns:190px repeat(12,1fr);gap:2px;margin-bottom:8px;font-size:14px;color:var(--ink-2);}
   .g-header .cell{text-align:center;}
   .g-row{display:grid;grid-template-columns:190px repeat(12,1fr);gap:2px;align-items:center;margin-bottom:7px;}
-  .g-label{font-size:13.5px;font-weight:600;padding-right:10px;line-height:1.4;}
-  .g-label small{display:block;font-weight:400;color:var(--ink-2);font-size:12px;}
+  .g-label{font-size:15.5px;font-weight:600;padding-right:10px;line-height:1.4;}
+  .g-label small{display:block;font-weight:400;color:var(--ink-2);font-size:14px;}
   .g-bar{height:22px;border-radius:4px;}
   .g-bar.dan{background:var(--green);}
   .g-bar.eng{background:var(--blue);}
   .g-bar.eng2{background:#6C89A0;}
   .g-bar.collab{background:repeating-linear-gradient(45deg,var(--blue),var(--blue) 7px,#3E8A72 7px,#3E8A72 14px);}
-  .g-note{font-size:12.5px;color:var(--ink-2);margin-top:14px;padding-top:12px;border-top:1px dashed var(--line);}
-  .g-legend{display:flex;gap:18px;flex-wrap:wrap;font-size:13px;color:var(--ink-2);margin-bottom:16px;}
+  .g-note{font-size:14.5px;color:var(--ink-2);margin-top:14px;padding-top:12px;border-top:1px dashed var(--line);}
+  .g-legend{display:flex;gap:18px;flex-wrap:wrap;font-size:15px;color:var(--ink-2);margin-bottom:16px;}
   .g-legend span{display:inline-flex;align-items:center;gap:6px;}
   .g-legend i{width:22px;height:12px;border-radius:3px;display:inline-block;}
   .g-legend i.dan{background:var(--green);}
@@ -171,24 +171,24 @@
   ol.next li::before{
     counter-increment:step;content:counter(step);
     position:absolute;left:0;top:1px;width:28px;height:28px;border-radius:50%;
-    background:var(--green);color:#fff;font-weight:700;font-size:14px;
+    background:var(--green);color:#fff;font-weight:700;font-size:16px;
     display:flex;align-items:center;justify-content:center;
   }
-  ol.next li b{font-weight:700;}
-  ol.next li p{color:var(--ink-2);font-size:14.5px;margin-top:2px;}
+  ol.next li b{font-weight:700;font-size:22px;}
+  ol.next li p{color:var(--ink-2);font-size:16.5px;margin-top:2px;}
 
   .badge.new{background:#B7791F;color:#fff;}
-  .status{display:inline-block;font-size:12.5px;font-weight:700;border-radius:20px;padding:2px 10px;white-space:nowrap;}
+  .status{display:inline-block;font-size:14.5px;font-weight:700;border-radius:20px;padding:2px 10px;white-space:nowrap;}
   .status.est{background:var(--slate-soft);color:var(--slate);}
   .status.quote{background:var(--amber-soft);color:var(--amber);}
   .status.wait{background:var(--green-soft);color:var(--green);}
-  td.q small{display:block;color:var(--ink-2);font-size:13px;margin-top:3px;}
+  td.q small{display:block;color:var(--ink-2);font-size:15px;margin-top:3px;}
   .law-box{background:var(--surface);border:1.5px solid var(--blue);border-radius:10px;padding:22px 24px;margin-top:22px;}
-  .law-box .v-label{font-size:13px;font-weight:700;letter-spacing:.12em;color:var(--blue);margin-bottom:6px;}
-  .law-box p{margin-top:8px;font-size:14.5px;}
-  .law-box ul{margin:6px 0 0 20px;font-size:14.5px;color:var(--ink-2);}
+  .law-box .v-label{font-size:17px;font-weight:700;letter-spacing:.12em;color:var(--blue);margin-bottom:6px;}
+  .law-box p{margin-top:8px;font-size:16.5px;}
+  .law-box ul{margin:6px 0 0 20px;font-size:16.5px;color:var(--ink-2);}
   .law-box a{color:var(--blue);}
-  footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--line);font-size:13px;color:var(--ink-2);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+  footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--line);font-size:15px;color:var(--ink-2);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
 </style>
 </head>
 <body>
@@ -320,7 +320,7 @@
       <li><b>信用卡簽單親簽</b>屬發卡組織/收單作業慣例,非電子簽章法範疇;線上收款/串 POS 是<b>金流(收單商)議題</b>,目前藍圖無金流模組,是否需要列入待業主回覆。</li>
       <li><b>保留事項:</b>內政部地政司 2021 年「排除電子簽章法適用之項目(地政業務部分)」公告原文本次未能讀取,且依落日條款最晚 2027/5 失效;<b>建議業主向地政司或經紀公會書面確認一次</b>,藍圖以「法律面可行,待主管機關確認」記載。</li>
     </ul>
-    <p style="font-size:13px;color:var(--ink-2);">出處:<a href="https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=J0080037" target="_blank" rel="noopener">電子簽章法</a> · <a href="https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0060066" target="_blank" rel="noopener">不動產經紀業管理條例</a> · <a href="https://moda.gov.tw/ADI/services/govinfo/e-bulletin/1651" target="_blank" rel="noopener">各機關排除適用電子簽章法項目公告(數產署)</a> · <a href="https://law.fsc.gov.tw/LawContent.aspx?id=FE220752" target="_blank" rel="noopener">金管會免簽名函釋</a></p>
+    <p style="font-size:15px;color:var(--ink-2);">出處:<a href="https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=J0080037" target="_blank" rel="noopener">電子簽章法</a> · <a href="https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0060066" target="_blank" rel="noopener">不動產經紀業管理條例</a> · <a href="https://moda.gov.tw/ADI/services/govinfo/e-bulletin/1651" target="_blank" rel="noopener">各機關排除適用電子簽章法項目公告(數產署)</a> · <a href="https://law.fsc.gov.tw/LawContent.aspx?id=FE220752" target="_blank" rel="noopener">金管會免簽名函釋</a></p>
   </div>
 </section>
 
@@ -388,7 +388,7 @@
         <span class="lv">中類</span>例:營運支出、案場支出、人事支出<br>
         <span class="lv">細項</span>業主逐條列出常見營運項目
       </div>
-      <div style="margin-top:10px;font-size:13.5px;">起手清單供業主增刪:</div>
+      <div style="margin-top:10px;font-size:15.5px;">起手清單供業主增刪:</div>
       <div class="acct-tree" style="margin-top:4px;">
         收入端:<code>租金收入</code> <code>代管服務費</code> <code>仲介服務費</code> <code>包租價差</code><br>
         支出端:<code>修繕維護</code> <code>水電瓦斯</code> <code>清潔</code> <code>廣告行銷</code> <code>規費稅捐</code> <code>保險</code> <code>獎金分潤</code> <code>雜支</code>
@@ -611,7 +611,7 @@
 
 <footer>
   <span>啟動家 × 168比網 · 系統建置藍圖草案</span>
-  <span>V0.4 · 2026-08-19</span>
+  <span>V0.5 · 2026-08-19</span>
 </footer>
 
 </div>
