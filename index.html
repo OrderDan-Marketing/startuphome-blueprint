@@ -547,7 +547,7 @@
       <tbody>
         <tr><td>B-1</td><td><b>合約系統</b> <span class="status wait">影響排序</span></td><td class="q">① 合約種類清單(委託銷售/租賃委託/包租/代管/租約/其他)與現行範本檔——請把現行常用的合約範本不論幾種全部提供,開發端分門別類後做結構化處理<br>② 條款怎麼切模組(哪些是公版、哪些是勾選條件)<br>③ 是否需自動帶入官網物件資料(地址/租金/房東)——決定合約系統歸屬的關鍵題<br>④ 版本管理由誰負責</td></tr>
         <tr><td>B-2</td><td><b>線上簽署(新增)</b></td><td class="q">① 簽署流程:業務先簽再寄客戶遠端簽?還是現場平板簽?<br>② 身分驗證要求(簡訊 OTP/Email/自然人憑證)<br>③ 簽完檔案存放處、是否需浮水印與時戳<br>④ 是否要先向地政司/經紀公會書面確認可用電子簽章(開發端建議要)</td></tr>
-        <tr><td>B-3</td><td><b>資料抓取</b><small>(原「雙重審核」的 AI 對接部分,名詞修正)</small></td><td class="q">① 要參照的網頁來源清單(政府公開資訊或其他)<br>② 若來源是需相關產業資格才能登入的會員後台:需另寫代理 Agent 負責登入該後台、依指定欄位抓取資料(開發端預估 1~2 個工作天)<br>③ 業務面談評分表的題目與配分<br>④ 主管確認後通知客戶的管道</td></tr>
+        <tr><td>B-3</td><td><b>資料抓取</b><small>(原「雙重審核」的 AI 對接部分,名詞修正)</small></td><td class="q">① 要參照的網頁來源清單(政府公開資訊或其他)<br>② 若來源是需相關產業資格才能登入的會員後台:需另寫代理 Agent 負責登入該後台、依指定欄位抓取資料(開發端預估 2~4 個工作天)<br>③ 業務面談評分表的題目與配分<br>④ 主管確認後通知客戶的管道</td></tr>
         <tr><td>B-4</td><td><b>客服自動化</b></td><td class="q">常見問題<b>類組</b>有幾種?請依開發端提供的「客服 QA 結構範本」試算表填寫:主題索引(每個類組的主題名+常見問法關鍵字)→ 各主題分頁(細項分類/關鍵字/標準回覆)→ 回覆庫;QA 庫由誰維護</td></tr>
         <tr><td>B-5</td><td><b>工程派工</b></td><td class="q">修繕/裝潢需求的來源管道(租客 LINE?業務回報?);誰排優先權<br><b>新增:</b>廠商清單與平常聯繫方式(電話/LINE/Email)——這決定系統是直接發送給廠商,還是發給我方窗口、再由窗口聯繫對應廠商</td></tr>
         <tr><td>B-6</td><td><b>關懷名單</b></td><td class="q">結構比照行事曆提醒機器人,需確認:<br>① 預設觸發時點(續約前幾天?節日?入住滿月?)<br>② 每位對象要發送幾則<br>③ 每則的預期發送時間(多久之前提醒/關懷)<br>④ 直接發送給房東/租客,還是發給對應業務窗口、由其做人工關懷或提醒</td></tr>
@@ -590,14 +590,14 @@
       <thead><tr><th style="width:26%">項目</th><th style="width:110px">狀態</th><th style="width:20%">預期製作時間</th><th style="width:16%">報價</th><th>備註</th></tr></thead>
       <tbody>
         <tr><td><b>P1 A2 官網+物件刊登</b>(含租管/買賣分類、Google Map、關鍵字)</td><td><span class="status quote">尋價中</span></td><td class="fill-cell">待填</td><td class="fill-cell">待填</td><td>前端官網使用者互動元件 + 後端內部行政 UI 介面:工程師尋價中(含估算時間);後端 API 由工程師設計</td></tr>
-        <tr><td><b>A5 會員制</b></td><td><span class="status est">已估</span></td><td><b>0.5~1 天</b></td><td class="fill-cell">待填</td><td>Email+手機註冊、Google/LINE 快速登入</td></tr>
+        <tr><td><b>A5 會員制</b></td><td><span class="status est">已估</span></td><td><b>1~2 天</b></td><td class="fill-cell">待填</td><td>Email+手機註冊、Google/LINE 快速登入</td></tr>
         <tr><td><b>A6 投報試算</b></td><td><span class="status est">估時中</span></td><td class="fill-cell">待填</td><td class="fill-cell">待填</td><td>待業主 A-8 回覆後估</td></tr>
         <tr><td><b>A6 平面圖工具</b></td><td><span class="status quote">尋價中</span></td><td class="fill-cell">待填</td><td class="fill-cell">待填</td><td>第三方白牌 vs 自建兩案並行尋價</td></tr>
         <tr><td><b>P2 B1 合約系統</b></td><td><span class="status est">估時中</span></td><td class="fill-cell">待填</td><td class="fill-cell">待填</td><td>待合約種類與範本(B-1)</td></tr>
         <tr><td><b>B1 線上簽署模組</b></td><td><span class="status quote">尋價中</span></td><td class="fill-cell">待填</td><td class="fill-cell">待填</td><td>電子簽章服務商(按份/按月計費)尋價中</td></tr>
-        <tr><td><b>P3 C 財務系統 + C4 記帳機器人</b></td><td><span class="status est">已估</span></td><td><b>1 週</b></td><td class="fill-cell">待填</td><td>開發端全權;待一年度收支明細與獎金公式 SOP(C-1/C-2)</td></tr>
-        <tr><td><b>P4 B2 雙重審核(資料抓取)</b></td><td><span class="status est">已估</span></td><td><b>1~2 個工作天</b></td><td class="fill-cell">待填</td><td>若來源為需登入的會員後台,含代理 Agent 登入抓取;待來源清單(B-3)</td></tr>
-        <tr><td><b>P5 B6 行情爬蟲</b></td><td><span class="status est">已估</span></td><td><b>2~3 天</b></td><td class="fill-cell">待填</td><td>待實價登錄後台帳號權限(B-7)</td></tr>
+        <tr><td><b>P3 C 財務系統 + C4 記帳機器人</b></td><td><span class="status est">已估</span></td><td><b>2 週</b></td><td class="fill-cell">待填</td><td>開發端全權;待一年度收支明細與獎金公式 SOP(C-1/C-2)</td></tr>
+        <tr><td><b>P4 B2 雙重審核(資料抓取)</b></td><td><span class="status est">已估</span></td><td><b>2~4 個工作天</b></td><td class="fill-cell">待填</td><td>若來源為需登入的會員後台,含代理 Agent 登入抓取;待來源清單(B-3)</td></tr>
+        <tr><td><b>P5 B6 行情爬蟲</b></td><td><span class="status est">已估</span></td><td><b>4~6 天</b></td><td class="fill-cell">待填</td><td>待實價登錄後台帳號權限(B-7)</td></tr>
         <tr><td><b>P6 B4 工程派工</b></td><td><span class="status est">估時中</span></td><td class="fill-cell">待填</td><td class="fill-cell">待填</td><td>最小條列版先上</td></tr>
         <tr><td><b>P7 B3 客服自動化</b></td><td><span class="status est">估時中</span></td><td class="fill-cell">待填</td><td class="fill-cell">待填</td><td>LINE 官方帳號方案費用另計</td></tr>
         <tr><td><b>P8 B5 關懷名單</b></td><td><span class="status est">估時中</span></td><td class="fill-cell">待填</td><td class="fill-cell">待填</td><td></td></tr>
