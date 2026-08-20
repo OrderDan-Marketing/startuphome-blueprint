@@ -52,8 +52,8 @@
   }
   .tab-btn{
     appearance:none;border:none;background:transparent;cursor:pointer;
-    font-family:inherit;font-size:15.5px;font-weight:700;color:var(--ink-2);
-    padding:10px 18px 12px;
+    font-family:inherit;font-size:15px;font-weight:700;color:var(--ink-2);
+    padding:10px 14px 12px;
     border-bottom:3px solid transparent;
     margin-bottom:-1.5px;
     transition:color .15s;
@@ -188,6 +188,22 @@
   .law-box p{margin-top:8px;font-size:16.5px;}
   .law-box ul{margin:6px 0 0 20px;font-size:16.5px;color:var(--ink-2);}
   .law-box a{color:var(--blue);}
+  .grade{display:inline-block;font-size:12.5px;font-weight:800;border-radius:20px;padding:2px 11px;white-space:nowrap;}
+  .grade.ok{background:var(--green-soft);color:var(--green);}
+  .grade.warn{background:var(--amber-soft);color:var(--amber);}
+  .grade.bad{background:#F7E8E5;color:#9B3A2F;}
+  .audit-sum{background:var(--surface);border:1.5px solid var(--green);border-radius:10px;padding:22px 24px;margin-bottom:26px;}
+  .audit-sum .v-label{font-size:13px;font-weight:700;letter-spacing:.12em;color:var(--green);margin-bottom:6px;}
+  .audit-sum p{margin-top:8px;font-size:14.5px;}
+  ol.fix{counter-reset:fx;list-style:none;margin-top:6px;}
+  ol.fix li{position:relative;padding:0 0 16px 44px;font-size:14.5px;}
+  ol.fix li::before{counter-increment:fx;content:counter(fx);position:absolute;left:0;top:1px;width:28px;height:28px;border-radius:50%;background:var(--blue);color:#fff;font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center;}
+  ol.fix li b{font-weight:700;}
+  ol.fix li p{color:var(--ink-2);font-size:13.5px;margin-top:2px;}
+  .tagx{display:inline-block;font-size:11.5px;font-weight:700;border-radius:5px;padding:1px 8px;margin-right:6px;vertical-align:1px;}
+  .tagx.c{background:var(--green-soft);color:var(--green);}
+  .tagx.t{background:var(--blue-soft);color:var(--blue);}
+  .tagx.s{background:var(--copper-soft);color:var(--copper);}
   footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--line);font-size:15px;color:var(--ink-2);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
 </style>
 </head>
@@ -195,7 +211,7 @@
 <div class="wrap">
 
 <header>
-  <div class="eyebrow">系統建置規劃 · 草案 V0.3</div>
+  <div class="eyebrow">系統建置規劃 · 草案 V0.6</div>
   <h1>啟動家 × 168比網 系統藍圖</h1>
   <p class="sub">整合品牌官網、內部作業流程與財務管理的系統建置架構。維度一是全系統的層級歸屬,維度二是各項目落地前的需求探索與排程原則。</p>
   <div class="meta">
@@ -210,6 +226,7 @@
   <button class="tab-btn active" data-tab="dim1"><span class="no">維度一</span>層級架構</button>
   <button class="tab-btn" data-tab="dim2"><span class="no">維度二</span>需求探索與排程</button>
   <button class="tab-btn" data-tab="dim3"><span class="no">第三頁</span>待業主提供 · 進度</button>
+  <button class="tab-btn" data-tab="dim4"><span class="no">第四頁</span>A1 SEO 健檢</button>
 </nav>
 
 <!-- ================================================= -->
@@ -609,9 +626,124 @@
 
 </div><!-- /dim3 -->
 
+
+<!-- ================================================= -->
+<!-- ============ TAB 4:A1 SEO 健檢 ================== -->
+<!-- ================================================= -->
+<div class="panel" id="dim4">
+
+<section>
+  <div class="sec-head"><span class="sec-no">第四頁</span><h2>A1 168比價王(168-house.com)SEO 健康檢查</h2></div>
+  <p class="sec-lede">2026-08-20 全站實測(robots/sitemap/實際搜尋結果/頁面原始碼逐項抓取驗證),對照本站目的=<b>獲客名單</b>檢視體質。判定:<span class="grade ok">✅ 良好</span> <span class="grade warn">⚠ 需改善</span> <span class="grade bad">❌ 缺失</span></p>
+
+  <div class="audit-sum">
+    <div class="v-label">健檢總評</div>
+    <p><strong>技術地基不差,但內容與結構沒對準獲客目的。</strong>sitemap 涵蓋完整(384 條 URL,文章/物件/經紀人都有)、HTTPS 與網域轉址正確、結構化資料(LocalBusiness+完整店家資訊)到位、圖片走 CDN 優化、任何頁面到名單表單都只有 1 層——骨架是健康的。</p>
+    <p>撐不起目的的是<strong>關鍵字對焦度</strong>:117 篇文章幾乎全是「高雄XX區房市分析報告」型資訊文,針對真正差異化賣點「包租代管」的文章僅 1 篇、「單邊代理」0 篇、「鳳山」0 篇;實搜「高雄 包租代管」「高雄 單邊代理」「鳳山 租屋管理」前 10 名<strong>完全查無此站</strong>。加上主導覽被全台 22 縣市下拉稀釋高雄在地定位、核心服務頁「房仲單邊代理」沒有導覽入口、首頁沒有 H1、多篇文章 meta description 誤填成 YouTube 網址、全站沒有 LINE 動線——訪客與 Google 都難以判斷這站的第一主張是「房市新聞平台」還是「包租代管/單邊代理服務商」。</p>
+  </div>
+
+  <h3><span class="chip" style="background:var(--blue);">①</span>技術基礎</h3>
+  <div class="tbl-scroll">
+    <table>
+      <thead><tr><th style="width:22%">檢查項</th><th>實測現況</th><th style="width:100px">判定</th></tr></thead>
+      <tbody>
+        <tr><td><b>robots.txt</b></td><td>Rank Math 標準設定,只擋 /wp-admin/ 與分頁,無誤攔;有宣告 sitemap</td><td><span class="grade ok">✅ 良好</span></td></tr>
+        <tr><td><b>sitemap</b></td><td>sitemap_index 分 7 個子圖:文章 117、頁面 10、物件 187、店鋪 3、經紀人 14、影片 52、在地 1,合計約 384 條 URL,自訂內容型別皆納入</td><td><span class="grade ok">✅ 良好</span></td></tr>
+        <tr><td><b>HTTPS / 轉址</b></td><td>http、www、http+www 三種組合皆 301 收斂到 https://168-house.com/(非 www);首頁 200、canonical 正確</td><td><span class="grade ok">✅ 良好</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3><span class="chip" style="background:var(--blue);">②</span>收錄與實搜排名</h3>
+  <div class="tbl-scroll">
+    <table>
+      <thead><tr><th style="width:22%">搜尋詞</th><th>實測結果</th><th style="width:100px">判定</th></tr></thead>
+      <tbody>
+        <tr><td><b>168比價王(品牌詞)</b></td><td>官網有出現,但被自家 Facebook/YouTube 卡在前面,首頁非壓倒性第一</td><td><span class="grade warn">⚠ 需改善</span></td></tr>
+        <tr><td><b>168-house</b></td><td>完全沒有命中本站,全是巧合同名的國外物件/民宿</td><td><span class="grade bad">❌ 缺失</span></td></tr>
+        <tr><td><b>高雄 包租代管</b></td><td>前 10 名查無此站(全是市府網頁與競品:愛窩/寄居蟹租屋/中迪/khouse)</td><td><span class="grade bad">❌ 缺失</span></td></tr>
+        <tr><td><b>高雄 單邊代理</b></td><td>前 10 名查無此站(全是永慶等一般房仲)——這是本站主打的差異化賣點</td><td><span class="grade bad">❌ 缺失</span></td></tr>
+        <tr><td><b>鳳山 租屋管理</b></td><td>前 10 名查無此站(全是 591、樂屋網等入口網)</td><td><span class="grade bad">❌ 缺失</span></td></tr>
+        <tr><td><b>精確收錄量</b></td><td>確認有被索引,精確筆數需 Google Search Console 驗證(本站尚未確認是否已接)</td><td><span class="grade warn">⚠ 待驗證</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3><span class="chip" style="background:var(--blue);">③</span>首頁體質</h3>
+  <div class="tbl-scroll">
+    <table>
+      <thead><tr><th style="width:22%">檢查項</th><th>實測現況</th><th style="width:100px">判定</th></tr></thead>
+      <tbody>
+        <tr><td><b>Title / Description</b></td><td>「高雄在地房仲｜168比價王 - 最新法拍屋與中古屋資訊」+描述涵蓋地區與服務詞,公式正確</td><td><span class="grade ok">✅ 良好</span></td></tr>
+        <tr><td><b>H1</b></td><td>首頁 H1 數量=0,標題結構直接從無跳到 H2</td><td><span class="grade bad">❌ 缺失</span></td></tr>
+        <tr><td><b>結構化資料</b></td><td>JSON-LD 完整:LocalBusiness/Organization/WebSite/Service/Place,店家地址電話統編社群連結齊全</td><td><span class="grade ok">✅ 良好</span></td></tr>
+        <tr><td><b>CTA 動線</b></td><td>首頁直連委託售屋/委託買屋/聯絡我們三個表單頁+電話;但全站沒有 LINE 連結</td><td><span class="grade warn">⚠ 需改善</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3><span class="chip" style="background:var(--blue);">④</span>網站結構</h3>
+  <div class="tbl-scroll">
+    <table>
+      <thead><tr><th style="width:22%">檢查項</th><th>實測現況</th><th style="width:100px">判定</th></tr></thead>
+      <tbody>
+        <tr><td><b>主導覽 22 縣市下拉</b></td><td>Houzez 主題預設全台功能,主導覽塞台北/基隆/連江…等與高雄在地業務無關的連結,稀釋定位</td><td><span class="grade bad">❌ 缺失</span></td></tr>
+        <tr><td><b>核心服務頁入口</b></td><td>「房仲單邊代理」「社會住宅包租代管」兩服務頁存在於 sitemap,但主導覽沒有「房仲單邊代理」入口=核心賣點變孤兒頁</td><td><span class="grade warn">⚠ 需改善</span></td></tr>
+        <tr><td><b>「廣告商家」頁</b></td><td>導覽指向 /design-sample/,頁面 title 卻是主題殘留的「網頁設計範例」,名實不符</td><td><span class="grade bad">❌ 缺失</span></td></tr>
+        <tr><td><b>URL 結構</b></td><td>中文 slug、層級過平(服務頁/表單頁全在根目錄),無主題群聚路徑</td><td><span class="grade warn">⚠ 需改善</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3><span class="chip" style="background:var(--blue);">⑤</span>文章抽查(5 篇)</h3>
+  <div class="tbl-scroll">
+    <table>
+      <thead><tr><th style="width:22%">檢查項</th><th>實測現況</th><th style="width:100px">判定</th></tr></thead>
+      <tbody>
+        <tr><td><b>Meta description</b></td><td>抽 5 篇中 3 篇異常:2 篇被誤填成 YouTube 影片網址、1 篇完全空白——系統性問題,需全站 117 篇批次掃描</td><td><span class="grade bad">❌ 缺失</span></td></tr>
+        <tr><td><b>標題寫法</b></td><td>多數是「地區+房市分析」正常寫法,但混雜「…之法理、經濟效益與風險管理:窮盡式比較」等論文式長標題,不符搜尋意圖</td><td><span class="grade warn">⚠ 需改善</span></td></tr>
+        <tr><td><b>H 結構</b></td><td>有文章出現 2 個 H1(重複);其餘 1 個 H1+編號式 H2 尚可</td><td><span class="grade warn">⚠ 需改善</span></td></tr>
+        <tr><td><b>關鍵字覆蓋</b></td><td>117 篇中:含「包租代管」1 篇、「單邊代理」0 篇、「鳳山」0 篇;「高雄」25 篇、「房市」25 篇——內容產能全押資訊型流量,轉單服務詞近乎零覆蓋</td><td><span class="grade bad">❌ 缺失</span></td></tr>
+        <tr><td><b>內連結/轉換路徑</b></td><td>每篇文章皆連到三個名單表單頁,路徑 1 層</td><td><span class="grade ok">✅ 良好</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3><span class="chip" style="background:var(--blue);">⑥</span>行動版・速度・轉換動線</h3>
+  <div class="tbl-scroll">
+    <table>
+      <thead><tr><th style="width:22%">檢查項</th><th>實測現況</th><th style="width:100px">判定</th></tr></thead>
+      <tbody>
+        <tr><td><b>行動版</b></td><td>viewport 正確設定</td><td><span class="grade ok">✅ 良好</span></td></tr>
+        <tr><td><b>圖片與載入</b></td><td>首圖走 CDN+srcset+LCP 優先載入,其餘圖片 27/32 掛 lazy loading,優化到位;真實 Core Web Vitals 需 PageSpeed 另測</td><td><span class="grade ok">✅ 良好</span></td></tr>
+        <tr><td><b>名單動線</b></td><td>首頁/文章/服務頁 → 表單皆 1 層,無多餘跳轉</td><td><span class="grade ok">✅ 良好</span></td></tr>
+        <tr><td><b>LINE 動線</b></td><td>首頁、聯絡頁、兩個服務頁實測皆無 LINE 官方帳號連結——台灣客群最低摩擦力的接觸管道完全缺席</td><td><span class="grade bad">❌ 缺失</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="sec-no">改善清單</span><h2>依影響力排序的 8 條改善項</h2></div>
+  <p class="sec-lede">標籤=層別:<span class="tagx c">內容層</span><span class="tagx t">技術層</span><span class="tagx s">結構層</span>;每條註明誰做得動。</p>
+  <ol class="fix">
+    <li><b><span class="tagx c">內容層</span>核心服務詞零內容覆蓋 → 補服務型內容</b><p>為「高雄包租代管」「高雄單邊代理」「鳳山/前鎮/三民…租屋管理」各寫 1–2 篇對應單一關鍵字的服務型頁面,而非再產區域房市分析。業主提供服務細節與案例素材,開發端落地成頁。</p></li>
+    <li><b><span class="tagx s">結構層</span>「房仲單邊代理」服務頁補進主導覽</b><p>核心賣點頁目前無入口。開發端直接改選單。</p></li>
+    <li><b><span class="tagx s">結構層</span>移除/收合主導覽的 22 縣市下拉</b><p>與高雄在地定位無關,稀釋主題也混淆用戶。開發端直接改(Houzez 設定)。</p></li>
+    <li><b><span class="tagx t">技術層</span>首頁補 H1</b><p>目前首頁 H1=0。開發端直接改。</p></li>
+    <li><b><span class="tagx c">內容層</span>全站掃修 meta description</b><p>抽查 5 篇中 3 篇異常(填成 YouTube 網址/空白),117 篇需批次掃描改寫。開發端批次盤點,業主定優先順序。</p></li>
+    <li><b><span class="tagx s">結構層</span>補 LINE 官方帳號動線</b><p>全站缺席。業主提供 LINE 連結/QR,開發端安裝。</p></li>
+    <li><b><span class="tagx t">技術層</span>修「廣告商家」頁標題名實不符</b><p>/design-sample/ 的 title 是主題殘留「網頁設計範例」。開發端直接改。</p></li>
+    <li><b><span class="tagx c">內容層</span>修論文式長標題+重複 H1</b><p>改成貼近搜尋意圖的自然標題,每篇僅留 1 個 H1。開發端/文案端改寫。</p></li>
+  </ol>
+  <p style="font-size:13px;color:var(--ink-2);margin-top:6px;">※ 未能自動取得、需人工/工具另驗:精確收錄筆數(需 Google Search Console)、真實 Core Web Vitals 分數(需 PageSpeed Insights)、品牌詞實際 SERP 順位快照。</p>
+</section>
+
+</div><!-- /dim4 -->
+
 <footer>
   <span>啟動家 × 168比網 · 系統建置藍圖草案</span>
-  <span>V0.5 · 2026-08-19</span>
+  <span>V0.6 · 2026-08-20</span>
 </footer>
 
 </div>
